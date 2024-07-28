@@ -47,6 +47,15 @@ Using `boto3`, Amazon Rekognition is invoked. Amazon Rekognition assumes the rol
 Here's the output of an image I uploaded👇
 ![Alt text](labeled_good_image.png)
 
+## Potential Improvements
+
+To further enhance the project, consider implementing the following improvements:
+
+- **Customizable output**: Allow users to specify the desired output format (e.g., JSON, CSV) and customize the visualization (e.g., label positioning, color schemes).
+
+- **Notification system**: Integrate a notification system (e.g., email, Slack) to alert users when new images are processed or when certain objects are detected.
+
+- **Web interface**: Create a web-based interface for users to upload images, view processed results, and manage the image library.
 
 ## Final Thoughts
 

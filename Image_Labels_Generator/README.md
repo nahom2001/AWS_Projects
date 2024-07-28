@@ -5,6 +5,7 @@ This project leverages Amazon Rekognition to extract and generate descriptive la
 ## Introduction
 
 This project utilizes Amazon Rekognition, a powerful AWS image analysis service, to automatically extract and generate descriptive labels for images stored in an Amazon S3 bucket.
+
 By utilizing advanced machine learning algorithms, Amazon Rekognition can detect objects, scenes, and activities within our images, enabling efficient image categorization and search capabilities. Ideal for managing extensive image libraries, this project facilitates seamless integration with your AWS infrastructure, ensuring scalability and robustness.
 
 ![Alt text](Image%20Labels%20Generator%20with%20AWS%20Rekognition.png)

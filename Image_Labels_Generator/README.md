@@ -4,7 +4,7 @@ This project leverages Amazon Rekognition to extract and generate descriptive la
 
 ## Introduction
 
-This project leverages Amazon Rekognition, a powerful AWS image analysis service, to automatically extract and generate descriptive labels for images stored in an Amazon S3 bucket. By utilizing advanced machine learning algorithms, Amazon Rekognition can detect objects, scenes, and activities within our images, enabling efficient image categorization and search capabilities. Ideal for managing extensive image libraries, this project facilitates seamless integration with your AWS infrastructure, ensuring scalability and robustness.
+This project utilizes Amazon Rekognition, a powerful AWS image analysis service, to automatically extract and generate descriptive labels for images stored in an Amazon S3 bucket. By utilizing advanced machine learning algorithms, Amazon Rekognition can detect objects, scenes, and activities within our images, enabling efficient image categorization and search capabilities. Ideal for managing extensive image libraries, this project facilitates seamless integration with your AWS infrastructure, ensuring scalability and robustness.
 
 ![Alt text](Image%20Labels%20Generator%20with%20AWS%20Rekognition.png)
 
@@ -16,23 +16,38 @@ The steps involved include:
 
 1. **Create an S3 Bucket:**
 
-    The S3 bucket is used to store images that are going to be processed. To create an S3 bucket, log in to your AWS Management Console, navigate to S3, and click on "Create Bucket". Follow the prompts to set up your bucket with the desired settings.
+   The S3 bucket is used to store images that are going to be processed. To create an S3 bucket, log in to your AWS Management Console, navigate to S3, and click on "Create Bucket". Follow the prompts to set up your bucket with the desired settings.
 
 2. **Uploading the Image in an S3 Bucket**
 
-    Once the bucket is created, you can upload images by clicking on the bucket name, then clicking "Upload". Choose your image files and upload them to the bucket.
+   Once the bucket is created, you can upload images by clicking on the bucket name, then clicking "Upload". Choose your image files and upload them to the bucket.
 
 3. **Installing and Configuring AWS CLI**
 
-    Install the AWS CLI by following the instructions on the AWS CLI official documentation. After installation, configure it by running `aws configure` and providing your AWS access key, secret key, region, and output format.
+   Install the AWS CLI by following the instructions on the AWS CLI official documentation. After installation, configure it by running `aws configure` and providing your AWS access key, secret key, region, and output format.
 
 4. **Creating an IAM Role and Attaching Custom Access Policy**
 
-    Create an IAM role for Rekognition to assume in the IAM console and configure a custom IAM policy using JSON or the visual setting option. Although I was tempted to grant S3 full access, creating a custom inline policy is more secure as it aligns with <span style="color:orange">principle of least privilege</span>.
+   Create an IAM role for Rekognition to assume in the IAM console and configure a custom IAM policy using JSON or the visual setting option. Although I was tempted to grant S3 full access, creating a custom inline policy is more secure as it aligns with the principle of least privilege.
 
 5. **Writing a Python Script to Programmatically Initiate Amazon Rekognition and Get Output**
 
-    Using the Amazon SDK (boto3), programmatically initiate AWS Rekognition to extract images from S3, process them, and provide output and metadata. Ensure that the credentials are not hardcoded; instead, they should be exported to the environment variables using the AWS CLI.
+   Using the Amazon SDK (boto3), programmatically initiate AWS Rekognition to extract images from S3, process them, and provide output and metadata. Ensure that the credentials are not hardcoded; instead, they should be exported to the environment variables using the AWS CLI.
+
+   ```python
+   import boto3
+   import json
+   from PIL import Image
+   import io
+   from dotenv import load_dotenv
+
+   # Load environment variables from a .env file
+   load_dotenv()
+
+   # Initialize AWS clients
+   region_name = "us-east-1"
+   rekognition_client = boto3.client('rekognition', region_name=region_name)
+   s3_client = boto3.client('s3', region_name=region_name)
 
 ## How It Works ⚙️
 

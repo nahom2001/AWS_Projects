@@ -62,6 +62,7 @@ Using `boto3`, Amazon Rekognition is invoked. Amazon Rekognition assumes the rol
 5. **Visualization**: The extracted data can be used to create visual representations of the detected objects, such as bounding boxes and labels overlaid on the original image.
 
 Here's the output of an image I uploaded👇
+
 ![Alt text](labeled_good_image.png)
 
 ## Potential Improvements

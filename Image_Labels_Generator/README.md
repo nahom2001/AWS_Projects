@@ -42,7 +42,7 @@ Using `boto3`, Amazon Rekognition is invoked. Amazon Rekognition assumes the rol
 2. **Object Detection**: Amazon Rekognition analyzes the image to identify objects within it.
 3. **Label Generation**: For each detected object, Rekognition assigns a label and a confidence score.
 4. **Data Extraction**: The script extracts the label and confidence score for each object.
-5. **Visualization (Optional)**: The extracted data can be used to create visual representations of the detected objects, such as bounding boxes and labels overlaid on the original image.
+5. **Visualization**: The extracted data can be used to create visual representations of the detected objects, such as bounding boxes and labels overlaid on the original image.
 
 Here's the output of an image I uploaded👇
 ![Alt text](labeled_good_image.png)
